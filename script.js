@@ -1,13 +1,14 @@
 const choices = ["rock", "paper", "scissors"]
+const rounds = 5
 let humanScore = 0
 let computerScore = 0
 
 function getComputerChoice() {
-    return choices[Math.floor(Math.random() * choices.length)]
+    return choices[Math.floor(Math.random() * (choices.length - 1))]
 }
 
 function getHumanChoice() {
-    return choices[prompt("Please enter your choice between 1 and 3 (1: rock, 2: paper, 3: scissors)")]
+    return choices[prompt("Please enter your choice between 1 and 3 (1: rock, 2: paper, 3: scissors)") - 1]
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -38,7 +39,16 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice()
-const computerSelection = getComputerChoice()
+for (let round = 1; round <= rounds; round++) {
+    playRound(getHumanChoice(), getComputerChoice())
+}
 
-playRound(humanSelection, computerSelection)
+console.log(`HUMAN SCORE: ${humanScore}`)
+console.log(`COMPUTER SCORE: ${computerScore}`)
+if (humanScore == computerScore) {
+    console.log("DRAW!!!")
+} else if (humanScore > computerScore) {
+    console.log("HUMAN WINS!!")
+} else {
+    console.log("COMPUTER WINS!!")
+}
