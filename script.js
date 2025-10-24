@@ -7,13 +7,9 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * (choices.length - 1))]
 }
 
-function getHumanChoice() {
-    return choices[prompt("Please enter your choice between 1 and 3 (1: rock, 2: paper, 3: scissors)") - 1]
-}
-
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == computerChoice) {
-        return
+        return "DRAW ROUND!"
     }
 
     if ((humanChoice == "rock" && computerChoice == "paper") ||
@@ -21,7 +17,7 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice == "scissors" && computerChoice == "rock")
     ) {
         computerScore++
-        return
+        return "COMPUTER WINS ROUND!"
     }
 
     if ((computerChoice == "rock" && humanChoice == "paper") ||
@@ -29,6 +25,6 @@ function playRound(humanChoice, computerChoice) {
         (computerChoice == "scissors" && humanChoice == "rock")
     ) {
         humanScore++
-        return
+        return "HUMAN WINS ROUND!"
     }
 }
