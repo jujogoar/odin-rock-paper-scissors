@@ -12,11 +12,7 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-
-    console.log(`HUMAN: ${humanChoice} VS COMPUTER: ${computerChoice}`)
-
     if (humanChoice == computerChoice) {
-        console.log("DRAW!")
         return
     }
 
@@ -24,7 +20,6 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice == "paper" && computerChoice == "scissors") ||
         (humanChoice == "scissors" && computerChoice == "rock")
     ) {
-        console.log("COMPUTER WINS ROUND!")
         computerScore++
         return
     }
@@ -33,22 +28,7 @@ function playRound(humanChoice, computerChoice) {
         (computerChoice == "paper" && humanChoice == "scissors") ||
         (computerChoice == "scissors" && humanChoice == "rock")
     ) {
-        console.log("HUMAN WINS ROUND!")
         humanScore++
         return
     }
-}
-
-for (let round = 1; round <= rounds; round++) {
-    playRound(getHumanChoice(), getComputerChoice())
-}
-
-console.log(`HUMAN SCORE: ${humanScore}`)
-console.log(`COMPUTER SCORE: ${computerScore}`)
-if (humanScore == computerScore) {
-    console.log("DRAW!!!")
-} else if (humanScore > computerScore) {
-    console.log("HUMAN WINS!!")
-} else {
-    console.log("COMPUTER WINS!!")
 }
